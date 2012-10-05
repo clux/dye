@@ -64,9 +64,9 @@ test("zebra", function (t) {
   var z = dye.zebra("XXXX");
   t.ok(z, "zebra works");
   t.equal(z.slice(0, 1), "X", "evens stay the same");
-  t.equal(z.slice(1, 12), '\x1B[7mX\x1B[27m', "odds inverted");
-  t.equal(z.slice(12, 13), 'X', "second even stays the same");
-  t.equal(z.slice(13, 25), '\x1B[7mX\x1B[27m', "second odd inverted");
+  t.equal(z.slice(1, 11), '\x1B[7mX\x1B[27m', "odds inverted");
+  t.equal(z.slice(11, 12), 'X', "second even stays the same");
+  t.equal(z.slice(12, 23), '\x1B[7mX\x1B[27m', "second odd inverted");
 
   t.end();
 });

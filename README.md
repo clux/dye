@@ -11,6 +11,8 @@ dye.red('this is red'); // '\u001b[31mthis is red\u001b[39m'
 ```
 
 When printed to the terminal these codes show up as:
+
+TODO: add screenshot
 ![example output!](https://github.com/clux/dye/raw/master/imgs/output.png)
 
 ## Installation
