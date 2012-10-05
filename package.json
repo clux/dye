@@ -1,0 +1,27 @@
+{
+  "name": "dye",
+  "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
+  "description": "Coloring library for console strings",
+  "version": "0.0.0",
+  "main": "dye.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clux/dye.git"
+  },
+  "scripts": {
+    "test": "tap ./test"
+  },
+  "keywords": [
+    "color",
+    "colour",
+    "console"
+  ],
+  "devDependencies": {
+    "tap": "~0.2.5",
+    "subset": "~0.1.0"
+  },
+  "bugs": {
+    "url": "http://github.com/clux/dye/issues"
+  },
+  "license": "MIT"
+}
