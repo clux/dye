@@ -2,7 +2,7 @@
   "name": "dye",
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
   "description": "Coloring library for console strings",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dye.js",
   "repository": {
     "type": "git",
