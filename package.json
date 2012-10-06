@@ -22,7 +22,7 @@
   ],
   "devDependencies": {
     "tap": "~0.2.5",
-    "subset": "~0.1.0"
+    "subset": "~0.1.1"
   },
   "bugs": {
     "url": "http://github.com/clux/dye/issues"
