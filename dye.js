@@ -63,18 +63,26 @@ var randInt = function (exclMax) {
   return Math.floor(Math.random() * exclMax);
 };
 
-// decorates a string with randInt(intensity) chars from each soul (per char)
-exports.zalgo = function (str, intensities) {
-  intensities = intensities || [3, 1, 3];
+var bernoulli = function (p) {
+  return (Math.random() < p) ? 1 : 0;
+};
+
+exports.zalgo = function (str, p, maxs) {
+  maxs = maxs || [5, 3, 5];
+  p = p || .2;
   return map.call(str, function (c) {
     for (var t = 0; t < souls.length; t += 1) {
-      for (var n = randInt(intensities[t] + 1); n > 0; n -= 1) {
-        c += souls[t][randInt(souls[t].length)];
+      var numChars = bernoulli(p) * randInt(maxs[t]);
+      for (var n = 0; n < numChars; n += 1) {
+        var soulNum = randInt(souls[t].length);
+        c += souls[t][soulNum];
       }
     }
     return c;
   }).join('');
 };
 
-// in case people want to attempt sanitize a zalgolized string
-exports.souls = [].concat(souls[0], souls[1], souls[2]);
+// in case people want to attempt sanitize a string
+exports.souls = function () {
+  return souls;
+};

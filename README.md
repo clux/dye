@@ -1,6 +1,6 @@
 # Dye [![Build Status](https://secure.travis-ci.org/clux/logule.png)](http://travis-ci.org/clux/dye)
 
-Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`.
+Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`. It also comes with a customizable [zalgolizer](#zalgo)
 
 The interface is mirror the popular `colors` module on `npm`, but does not introduce implicit global dependencies in your code via `String.prototype`, and has been cleaned up for terminal use only.
 
@@ -19,8 +19,7 @@ cols.forEach(function (col) {
 
 ![example output!](https://github.com/clux/dye/raw/master/imgs/output.png)
 
-The
-## Experimental Stuff
+## Fun / Experimental Stuff
 The `inverse`, `underline`, `italic` functions have sparse support (no worky on windows).
 
 ### zebra()
@@ -30,28 +29,33 @@ Because of the reliance on `inverse`, this is not widely supported.
 ### rainbow()
 Cycles through `red`, `yellow`, `green`, `blue` and `magenta` to create a rainbow effect on text.
 
-It the non-bright version should work everywhere, the bright version, i.e. `dye.bold(dye.rainbow('bright rainbow'))` might fail depending on how escape code parsing handles nesting in your terminal (no worky on windows).
+It the non-bright version should work everywhere, but the bright version, i.e. `dye.bold(dye.rainbow('bright rainbow'))` might fail depending on how escape code parsing handles nesting in your terminal (no worky on windows).
 
 ### zalgo()
-[H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ](http://www.ghostwoods.com/2009/11/stack-overflow-zalgo-he-comes-807/).
+[H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ](http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454).
 
-This is a standard, non-deterministic zalgolizer. It works as follows:
+This is a uniform-clustered zalgolizer. It picks up to a specified number of symbols from each subarray of [souls](https://github.com/clux/dye/blob/master/dye.js#L42) at uniform randomness (with probability `p`), or picks from it no symbols at all (with probability `1-p`).
 
-Take three random integers, and append a random selection of symbols from each subarray of [souls](https://github.com/clux/dye/blob/master/dye.js#L42).
+The probability lets you specify how clustered you want the symbols (`p=1` ⇒ completely uniform distribution, `p=0.5` ⇒ on average half the letters get nothing, the rest are uniformly distributed)
 
-By default it picks up to `3` symbols from the top and bottom set (the symbols extending above and below the text resp.), and up to `1` from the middle set (that overlays the text) and appends to the first character. Roll again and append to the second character, etc.
+The different soul type contain symbols that go above, in the middle of, or underneath the text respectively.
 
-How intense the effect should be can be regulated by passing in your own upper maxima in an array.
+Some examples
 
 ```js
-dye.zalgo('default', [3, 1, 3]); // intensities can be omitted here
-'d̜e͔f̡͖̆ͨ̀̕a̴̕ū̸̒ͬ͟͜l̟ͬ̓̌̀͜͟t̢͑̇'
+dye.zalgo('default zalgolization'); // p=.2, maxPicks = [5, 3, 5]
+'d̠̤̟̰efauḻt z͂̈al̊̚g͈oli̷za̪͉t̽̅i̘̪̫̼on'
 
-dye.zalgo('intense', [6, 3, 6]);
-'ḭ͙̘̓͒ͩ͠n̢̛͕̰̗ͩ̆͗ͧ͋ṫ̨̀̀͘ȅ͔̮̊̈̎͡ǹ͕̥͜s̶̲̺ͥ̓ͮ͘͠͝͞e̫̩̲̍ͩͬ҉̵̴́'
+dye.zalgo('less clustered zalgolization', 0.7, [2, 1, 2]);
+l̋e̦s̠s̲ ̬̚c̩ḷȗ̘s̮tͪer̮ed̯ ̥za̾lg̘öl͓ĭ͚zat̻͂io̫n̖
+
+dye.zalgo('intense, clustered zalgolization', 0.2, [10, 5, 10])
+'i̛̩͖̤̯̮͠ͅn̷͟t͢en̝͎͇͙̭sͧͤͨ̓͗̾e͑̐ͫ̒ͨ̓ͮ̏̑, c̓lů͚̺̦̰̪͓͐ͯ̈ster͍̤͖͗͌̇ͨͦͥ̚é͜d̨̡͘͞ za̋ͬͫlgͧ̏ͧ̃ͫͭͯ̈̆ol̲͕̳͓͍̯̠i̢͢z̙ation͡'
 ```
 
-Note that windows seem impenetrable by zalgo and might display question marks.
+A windows command line is impenetrable by zalgo and will display question marks instead.
+
+Finally, if you would like to sanitize / attempt to exorcise such a string, you can take the difference with the characters available via the exported `souls` function.
 
 ## Installation
 
