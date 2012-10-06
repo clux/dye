@@ -38,22 +38,24 @@ test("rainbow", function (t) {
   t.ok(r, "rainbow works");
   var chunked = [0,1,2,3,4,5,6,7,8,9].map(function (n) {
     return r.slice(11 * n, 11*n + 11);
-  })
+  });
   chunked.forEach(function (codes, i) {
-    if (i % 5 === 0) {
-      t.equal(codes, '\x1B[31mX\x1B[39m', "red code" + i);
-    }
-    if (i % 5 === 1) {
-      t.equal(codes, '\x1B[33mX\x1B[39m', "yellow code" + i);
-    }
-    if (i % 5 === 2) {
-      t.equal(codes, '\x1B[32mX\x1B[39m', "green code" + i);
-    }
-    if (i % 5 === 3) {
-      t.equal(codes, '\x1B[34mX\x1B[39m', "blue code" + i);
-    }
-    if (i % 5 === 4) {
-      t.equal(codes, '\x1B[35mX\x1B[39m', "magenta code" + i);
+    switch (i % 5) {
+      case 0:
+        t.equal(codes, '\x1B[31mX\x1B[39m', "red code" + i);
+        break;
+      case 1:
+        t.equal(codes, '\x1B[33mX\x1B[39m', "yellow code" + i);
+        break;
+      case 2:
+        t.equal(codes, '\x1B[32mX\x1B[39m', "green code" + i);
+        break;
+      case 3:
+        t.equal(codes, '\x1B[34mX\x1B[39m', "blue code" + i);
+        break;
+      case 4:
+        t.equal(codes, '\x1B[35mX\x1B[39m', "magenta code" + i);
+        break;
     }
   });
 

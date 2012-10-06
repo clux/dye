@@ -47,15 +47,15 @@ var souls = [
     '̔', '̽', '̉', 'ͣ',  'ͤ',  'ͥ',  'ͦ',  'ͧ',  'ͨ',  'ͩ',
     'ͪ',  'ͫ',  'ͬ',  'ͭ',  'ͮ',  'ͯ',  '̾', '͛',  '͆',  '̚'
   ],
+  [ // mid
+    '̕', '̛', '̀', '́', '͘', '̡', '̢', '̧', '̨', '̴', '̵',
+    '̶', '͜',  '͝',  '͞',  '͟',  '͠',  '͢',  '̸', '̷', '͡', '҉'
+  ],
   [ // low
     '̖', '̗', '̘', '̙', '̜', '̝', '̞', '̟', '̠', '̤',
     '̥', '̦', '̩', '̪', '̫', '̬', '̭', '̮', '̯', '̰',
     '̱', '̲', '̳', '̹', '̺', '̻', '̼', 'ͅ',  '͇',  '͈',
     '͉',  '͍',  '͎',  '͓',  '͔',  '͕',  '͖',  '͙',  '͚',  '̣'
-  ],
-  [ // mid
-    '̕', '̛', '̀', '́', '͘', '̡', '̢', '̧', '̨', '̴', '̵',
-    '̶', '͜',  '͝',  '͞',  '͟',  '͠',  '͢',  '̸', '̷', '͡', '҉'
   ]
 ];
 
@@ -63,12 +63,12 @@ var randInt = function (exclMax) {
   return Math.floor(Math.random() * exclMax);
 };
 
-// decorates a string with randInt(die) chars from each soul
-exports.zalgo = function (str, dice) {
-  dice = dice || [3, 3, 1];
+// decorates a string with randInt(intensity) chars from each soul (per char)
+exports.zalgo = function (str, intensities) {
+  intensities = intensities || [3, 1, 3];
   return map.call(str, function (c) {
     for (var t = 0; t < souls.length; t += 1) {
-      for (var n = randInt(dice[t] + 1); n > 0; n -= 1) {
+      for (var n = randInt(intensities[t] + 1); n > 0; n -= 1) {
         c += souls[t][randInt(souls[t].length)];
       }
     }
