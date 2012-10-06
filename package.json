@@ -13,11 +13,11 @@
   },
   "keywords": [
     "color",
-    "colour",
     "terminal",
     "ANSI",
     "escape",
     "sequence",
+    "zalgo",
     "console"
   ],
   "devDependencies": {
