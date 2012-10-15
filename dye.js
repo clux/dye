@@ -64,12 +64,12 @@ var randInt = function (exclMax) {
 };
 
 var bernoulli = function (p) {
-  return (Math.random() < p) ? 1 : 0;
+  return (Math.random() < p);
 };
 
 exports.zalgo = function (str, p, maxs) {
   maxs = maxs || [5, 3, 5];
-  p = p || .2;
+  p = p || 0.2;
   return map.call(str, function (c) {
     for (var t = 0; t < souls.length; t += 1) {
       var numChars = bernoulli(p) * randInt(maxs[t]);
