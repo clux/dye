@@ -1,6 +1,6 @@
 # Dye [![Build Status](https://secure.travis-ci.org/clux/logule.png)](http://travis-ci.org/clux/dye)
 
-Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`. It also comes with a much more customizable and easy to use [zalgolizer](#zalgo)
+Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`. It also comes with a customizable [zalgolizer](#zalgo)
 
 The interface mostly mirrors the popular `colors` module on `npm`, but does not introduce implicit global dependencies in your code via `String.prototype`, and has been cleaned up for terminal use only.
 
@@ -25,11 +25,11 @@ The `inverse`, `underline`, `italic` functions have sparse support (no worky on 
 ### zalgo()
 [H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ](http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454).
 
-This is a uniform-clustered zalgolizer. It picks up to a specified number of symbols from each [subarray of souls](https://github.com/clux/dye/blob/master/dye.js#L42) at uniform randomness (with probability `p`), or picks from it no symbols at all (with probability `1-p`).
+This is a uniform-clustered zalgolizer. It picks up to a specified number of symbols from each [subarray of souls](https://github.com/clux/dye/blob/a24540db12b6c661d0f4a4ef9cfc70e5ee774399/zalgo.js#L3-21) at uniform randomness (with probability `p`), or picks from it no symbols at all (with probability `1-p`).
 
 The probability lets you specify how clustered you want the symbols (`p=1` ⇒ completely uniform distribution, `p=0.5` ⇒ on average half the letters get nothing, the rest are uniformly distributed)
 
-The different [soul types](https://github.com/clux/dye/blob/master/dye.js#L42) contain symbols that go above, in the middle of, or underneath the text respectively.
+The different [soul types](https://github.com/clux/dye/blob/a24540db12b6c661d0f4a4ef9cfc70e5ee774399/zalgo.js#L3-21) contain symbols that go above, in the middle of, or underneath the text respectively.
 
 Some examples
 
