@@ -20,6 +20,9 @@
     "zalgo",
     "console"
   ],
+  "dependencies": {
+    "trials": "~0.1.2"
+  },
   "devDependencies": {
     "tap": "~0.3.1",
     "subset": "~0.1.1"

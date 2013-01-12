@@ -22,15 +22,6 @@ cols.forEach(function (col) {
 ## Fun / Experimental Stuff
 The `inverse`, `underline`, `italic` functions have sparse support (no worky on windows).
 
-### zebra()
-Alternates between unwrapped chars and `inverse` applied chars to create a zebra effect.
-Because of the reliance on `inverse`, this is not widely supported.
-
-### rainbow()
-Cycles through `red`, `yellow`, `green`, `blue` and `magenta` to create a rainbow effect on text.
-
-Direct use of this should work everywhere, but a bold/bright version, i.e. `dye.bold(dye.rainbow('bright rainbow'))` might fail depending on how escape code parsing handles nesting in your terminal (no worky on windows).
-
 ### zalgo()
 [H̸̡̪̯ͨ͊̽̅̾̎Ȩ̬̩̾͛ͪ̈́̀́͘ ̶̧̨̱̹̭̯ͧ̾ͬC̷̙̲̝͖ͭ̏ͥͮ͟Oͮ͏̮̪̝͍M̲̖͊̒ͪͩͬ̚̚͜Ȇ̴̟̟͙̞ͩ͌͝S̨̥̫͎̭ͯ̿̔̀ͅ](http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454).
 
