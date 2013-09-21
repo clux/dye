@@ -6,7 +6,7 @@
   "main": "dye.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/clux/dye.git"
+    "url": "clux/dye"
   },
   "scripts": {
     "test": "tap ./test"
@@ -24,7 +24,7 @@
     "trials": "~0.1.2"
   },
   "devDependencies": {
-    "tap": "~0.4.2",
+    "tap": "~0.4.4",
     "subset": "~0.1.1"
   },
   "bugs": {
