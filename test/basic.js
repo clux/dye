@@ -1,9 +1,7 @@
-var tap = require('tap')
-  , test = tap.test
-  , set = require('subset')
+var set = require('subset')
   , dye = require('../');
 
-test("codes", function (t) {
+exports.codes = function (t) {
   t.equal(dye.bold('XXX'), '\x1B[1mXXX\x1B[22m', dye.bold('bold'));
   t.equal(dye.italic('XXX'), '\x1B[3mXXX\x1B[23m', dye.italic('italic'));
   t.equal(dye.underline('XXX'), '\x1B[4mXXX\x1B[24m', dye.italic('underline'));
@@ -18,10 +16,10 @@ test("codes", function (t) {
   t.equal(dye.red('XXX'), '\x1B[31mXXX\x1B[39m', dye.red('red'));
   t.equal(dye.yellow('XXX'), '\x1B[33mXXX\x1B[39m', dye.yellow('yellow'));
   t.equal(dye.stripColors(dye.red("abcdefghijklmnop")), "abcdefghijklmnop", "strip");
-  t.end();
-});
+  t.done();
+};
 
-test("zalgo", function (t) {
+exports.zalgo = function (t) {
   var str = 'he comes';
   var zalgd = dye.zalgo(str, [10,10,10]);
   t.ok(zalgd, "zalgo works");
@@ -45,5 +43,5 @@ test("zalgo", function (t) {
   var diffLo = set.nub(set.difference(zalgLo.split(''), str.split('')));
   t.ok(set.isSubsetOf(diffLo, souls[2]), "(zalgo(str, Low) \\ str) ⊆ soulsLow");
 
-  t.end();
-});
+  t.done();
+};
