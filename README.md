@@ -1,29 +1,29 @@
 # Dye
 [![Build Status](https://secure.travis-ci.org/clux/logule.png)](http://travis-ci.org/clux/dye)
 [![Dependency Status](https://david-dm.org/clux/dye.png)](https://david-dm.org/clux/dye)
-[![unstable](http://hughsk.github.io/stability-badges/dist/unstable.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
 [![Coverage Status](https://coveralls.io/repos/clux/dye/badge.png)](https://coveralls.io/r/clux/dye)
+[![unstable](http://img.shields.io/badge/stability-unstable-e5ae13.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
 
 Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`. It also comes with a customizable [zalgolizer](#zalgo)
 
 The interface mostly mirrors the popular `colors` module on `npm`, but does not introduce implicit global dependencies in your code via `String.prototype`, and has been cleaned up for terminal use only.
 
-## Safe Usage
+## Usage
 Basic usage is simply `dye.red(str)`. All the exported colors with `bold` (aka bright) variants should work everywhere. Here we test all the methods in both variants.
 
 ```js
 var dye = require('dye');
 var cols = ['white', 'black', 'grey', 'blue', 'cyan', 'green', 'magenta', 'red','yellow'];
 cols.forEach(function (col) {
-  var escapedStr = dye[col](col);
-  console.log(escapedStr);
-  console.log(dye.bold(escapedStr));
+  var colored = dye[col](col);
+  console.log(colored);
+  console.log(dye.bold(colored));
 });
 ```
 
 ![example output!](https://github.com/clux/dye/raw/master/imgs/output.png)
 
-## Fun / Experimental Stuff
+## Experimental
 The `inverse`, `underline`, `italic` functions have sparse support (no worky on windows).
 
 ### zalgo()
