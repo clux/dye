@@ -1,7 +1,7 @@
 # dye
 [![Build Status](https://secure.travis-ci.org/clux/dye.svg)](http://travis-ci.org/clux/dye)
 [![Dependency Status](https://david-dm.org/clux/dye.svg)](https://david-dm.org/clux/dye)
-[![Coverage Status](http://img.shields.io/coveralls/clux/dye.svg/badge.png)](https://coveralls.io/repos/clux/dye)
+[![Coverage Status](http://img.shields.io/coveralls/clux/dye.svg)](https://coveralls.io/repos/clux/dye)
 [![unstable](http://img.shields.io/badge/stability-unstable-E5AE13.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
 
 Dye is a coloring/styling library for wrapping common ANSI escape sequences around text that produce colors/styling when sent to `stdout`. It also comes with a customizable [zalgolizer](#zalgo)
