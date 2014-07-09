@@ -3,7 +3,7 @@
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
   "description": "Coloring library for console strings",
   "version": "0.2.0",
-  "main": "dye.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "clux/dye"
