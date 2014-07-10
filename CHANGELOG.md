@@ -1,3 +1,7 @@
+0.2.1 / 2014-07-10
+==================
+  * Better documentation and code coverage
+
 0.2.0 / 2013-01-12
 ==================
   * removed gimmicky `rainbow` and `zebra`
