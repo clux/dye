@@ -3,14 +3,10 @@
   "author": "Eirik Albrigtsen <analsandblaster@gmail.com>",
   "description": "Coloring library for console strings",
   "version": "0.2.1",
-  "main": "index.js",
+  "stability": "unstable",
   "repository": {
     "type": "git",
     "url": "clux/dye"
-  },
-  "scripts": {
-    "test": "$(npm bin)/nodeunit test/*.js",
-    "coveralls": "$(npm bin)/jscoverage lib && DYE_COV=1 $(npm bin)/nodeunit --reporter=lcov test | $(npm bin)/coveralls"
   },
   "keywords": [
     "color",
@@ -21,6 +17,11 @@
     "zalgo",
     "console"
   ],
+  "main": "index.js",
+  "scripts": {
+    "test": "$(npm bin)/nodeunit test/*.js",
+    "coveralls": "$(npm bin)/jscoverage lib && DYE_COV=1 $(npm bin)/nodeunit --reporter=lcov test | $(npm bin)/coveralls"
+  },
   "dependencies": {
     "trials": "~0.1.2"
   },
@@ -30,7 +31,6 @@
     "jscoverage": "~0.5.4",
     "coveralls": "~2.11.1"
   },
-  "stability": "unstable",
   "bugs": {
     "url": "http://github.com/clux/dye/issues"
   },
