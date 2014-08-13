@@ -17,7 +17,7 @@
     "zalgo",
     "console"
   ],
-  "main": "index.js",
+  "main": "lib/dye.js",
   "scripts": {
     "test": "nodeunit test/*.js",
     "coverage": "jscoverage lib && DYE_COV=1 nodeunit --reporter=lcov test",

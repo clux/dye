@@ -1,5 +1,5 @@
 var set = require('subset')
-  , dye = require('../');
+  , dye = require(process.env.DYE_COV ? '../lib-cov/dye.js' : '../');
 
 exports.codes = function (t) {
   t.equal(dye.bold('XXX'), '\x1B[1mXXX\x1B[22m', dye.bold('bold'));
