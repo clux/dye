@@ -1,3 +1,7 @@
+1.0.0 / 2015-04-02
+==================
+  * Zalgo factored out to the zalgolize module - this is now dependency free
+
 0.2.1 / 2014-07-10
 ==================
   * Better documentation and code coverage
