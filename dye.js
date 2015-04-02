@@ -23,5 +23,3 @@ Object.keys(codes).forEach(function (style) {
 exports.stripColors = function (str) {
   return str.replace(/\x1B\[\d+m/g, '');
 };
-
-exports.zalgo = require('./zalgo');
