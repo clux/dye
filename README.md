@@ -32,13 +32,5 @@ The `inverse`, `underline`, `italic` functions have sparse support (no worky on 
 $ npm install dye
 ```
 
-## Running tests
-Install development dependencies and run tests
-
-```sh
-$ npm install
-$ npm test
-```
-
 ## License
 MIT-Licensed. See LICENSE file for details.

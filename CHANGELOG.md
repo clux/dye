@@ -1,3 +1,7 @@
+1.0.1 / 2015-11-14
+==================
+  * Added npmignore
+
 1.0.0 / 2015-04-02
 ==================
   * Zalgo factored out to the zalgolize module - this is now dependency free
